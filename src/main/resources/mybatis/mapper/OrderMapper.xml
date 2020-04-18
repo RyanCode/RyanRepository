@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ryan.springbootvue.mapper.OrderMapper">
+<!--
+    List<T_order> findList(int from, int to);
+
+    int findAllList();
+
+    List<T_order> findListByStr(String query, int from, int to);
+
+    Integer addOrder(T_order order);
+-->
+
+    <select id="findList" resultType="com.ryan.springbootvue.entity.T_order">
+        select* from t_order limit #{from},#{to }
+    </select>
+    <select id="findAllList" resultType="integer">
+        select count(*) from t_order
+    </select>
+    <select id="findListByStr" resultType="com.ryan.springbootvue.entity.T_order">
+        select * from t_order where id like concat('%','${query}','%') or name like concat('%','${query}','%')
+        or type like concat('%','${query}','%') or price like concat('%','${query}','%') or date like concat('%','${query}','%')
+        limit #{from},#{to}
+    </select>
+    <insert id="addOrder">
+        insert into t_order(id,name, type,price ,customer,cost,date ) values (#{id},#{name},#{type},#{price},#{customer},#{cost},#{date})
+    </insert>
+</mapper>

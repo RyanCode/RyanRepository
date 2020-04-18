@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ryan.springbootvue.mapper.BookMapper">
+<!--    int insert(Book book);
+
+    int insertSelective(Book record);
+
+    List<Book> findList(Book book);-->
+    <select id="findList" resultType="com.ryan.springbootvue.entity.Book">
+        select * from book
+    </select>
+    <insert id="insert">
+        insert into book(id,name ,author,date ) values(#{id},#{name},#{author},#{date})
+    </insert>
+</mapper>
