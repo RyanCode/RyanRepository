@@ -1,6 +1,7 @@
-package com.ryan.springbootvue.mathUtil;
+package com.ryan.springbootvue.service.order.imp;
 
 import com.ryan.springbootvue.entity.T_order;
+import com.ryan.springbootvue.service.order.OrderRuleGenerate;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -11,7 +12,7 @@ import java.util.UUID;
  * version 1.0
  */
 @Service
-public class OrderRuleGenerateImp implements OrderRuleGenerate{
+public class OrderRuleGenerateImp implements OrderRuleGenerate {
     /**
      * uuid生成唯一主键
      * @param

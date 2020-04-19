@@ -2,7 +2,7 @@ package com.ryan.springbootvue.controller;
 
 import com.ryan.springbootvue.dto.Result;
 import com.ryan.springbootvue.entity.User;
-import com.ryan.springbootvue.service.UserService;
+import com.ryan.springbootvue.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.*;
@@ -36,7 +36,7 @@ public class LoginController {
          * 获取当前时间戳来生成不同的token对象
          */
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String str=requestUser.getName()+requestUser.getPassword()+sdf.format(new Date().getTime());
+        String str=requestUser.getName()+sdf.format(new Date().getTime());
         String token= DigestUtils.md5DigestAsHex(str.getBytes());
         if (null==user){
             return new Result(400,token,user.getIsAdmin());

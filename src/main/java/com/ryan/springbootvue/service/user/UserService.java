@@ -1,4 +1,4 @@
-package com.ryan.springbootvue.service;
+package com.ryan.springbootvue.service.user;
 
 import com.ryan.springbootvue.dto.ResponseDto;
 import com.ryan.springbootvue.entity.User;

@@ -1,13 +1,11 @@
-package com.ryan.springbootvue.service.imp;
+package com.ryan.springbootvue.service.user.imp;
 
 import com.ryan.springbootvue.dto.ResponseDto;
 import com.ryan.springbootvue.entity.User;
 import com.ryan.springbootvue.mapper.UserMapper;
-import com.ryan.springbootvue.service.UserService;
+import com.ryan.springbootvue.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * @Author Ryan
