@@ -28,7 +28,6 @@ public class DataController {
         return query.equals("") ? orderService.findOrderList(from,to):orderService.findOrderListStr(query,from,to);
     }
 
-
     @PostMapping(value = "/addOrder")
     @ResponseBody
     public int addOrderList(@RequestBody T_order order) throws ParseException {
