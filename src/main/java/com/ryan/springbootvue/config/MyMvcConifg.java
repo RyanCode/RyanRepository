@@ -1,12 +1,11 @@
 package com.ryan.springbootvue.config;
 
-import com.ryan.springbootvue.component.LoginHandlerInceptor;
+import com.ryan.springbootvue.component.LoginHandlerInterceptor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
-import java.util.logging.Logger;
 
 /**
  * @Author Ryan
@@ -24,10 +23,17 @@ public class MyMvcConifg implements WebMvcConfigurer {
                 .allowedMethods("GET","POST","DELETE","PUT","HEAD","OPTIONS")
                 .maxAge(3600);
     }
-
+    /**
+     * 将LoginHandlerInterceptor注入到容器
+     * @return
+     */
+    @Bean
+    public LoginHandlerInterceptor getLoginInterceptor(){
+        return new LoginHandlerInterceptor();
+    }
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new LoginHandlerInceptor()).addPathPatterns("/**")
+        registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
         .excludePathPatterns("/login");
     }
 }

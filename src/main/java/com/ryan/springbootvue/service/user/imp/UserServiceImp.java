@@ -27,4 +27,9 @@ public class UserServiceImp implements UserService {
     public ResponseDto addUserListData(User user) {
         return null;
     }
+
+    @Override
+    public boolean isAdmin(String userName) {
+        return userMapper.judgeIsAdmin(userName);
+    }
 }

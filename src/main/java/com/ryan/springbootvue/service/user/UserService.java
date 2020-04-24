@@ -14,4 +14,6 @@ public interface UserService {
 
     ResponseDto addUserListData(User user);
 
+    boolean isAdmin(String username);
+
 }

@@ -16,4 +16,6 @@ public interface UserMapper {
     int insert(User user);
 
     User findUser(String name, String password);
+
+    Boolean judgeIsAdmin(String userName);
 }

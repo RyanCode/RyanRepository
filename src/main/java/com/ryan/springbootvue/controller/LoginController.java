@@ -35,9 +35,8 @@ public class LoginController {
         name= HtmlUtils.htmlEscape(name);
         User user = userService.findUserById(name, requestUser.getPassword());
 
-
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String str=requestUser.getName()+" "+sdf.format(new Date().getTime());
+        String str=name +" "+sdf.format(new Date().getTime());
         /**
          * 调用RSA非对称加密算法生成token
          */
