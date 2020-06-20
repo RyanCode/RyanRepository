@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ryan.springbootvue.mapper.UserMapper">
+    <!--
+    List<User> findUser(User user);
+        int insertJournal(Journals journals);
+            Journals findAllJournal();-->
+    <select id="findUser" resultType="com.ryan.springbootvue.entity.User">
+        select name,password,isadmin,createtime,status from user where name=#{name} and password=#{password}
+    </select>
+    <insert id="insertJournal">
+        insert into loginjournals values (#{id},#{acc},#{date},#{status},#{ip})
+    </insert>
+    <select id="findAllJournal" resultType="com.ryan.springbootvue.entity.Journals">
+        select * from loginjournals;
+    </select>
+    <select id="findAllUser" resultType="com.ryan.springbootvue.entity.User">
+        select * from user where isadmin=0
+    </select>
+    <delete id="deleteUser">
+        delete from user where name=#{name}
+    </delete>
+</mapper>

@@ -5,6 +5,7 @@ import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 
 /**
  * @Author Ryan
@@ -13,7 +14,7 @@ import javax.validation.constraints.NotBlank;
  */
 @Data
 @AllArgsConstructor
-public class T_order {
+public class T_order implements Serializable{
     @NotBlank
     private String id;
     private String name;
@@ -23,6 +24,9 @@ public class T_order {
     private String type;
     private String customer;
     private String cost;
+    //反序列化需要无参构造器
+    public T_order(){
+    }
 
     @Override
     public String toString() {

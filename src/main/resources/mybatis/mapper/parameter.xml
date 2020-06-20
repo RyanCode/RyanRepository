@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--        List<Parameter> getPara();
+    List<Parameter> getParaById(int id);
+
+        List<Object> getObjArrById(String table,int id);
+
+    List<Object> getObjArrByStr(String table,String str,String index);
+-->
+<mapper namespace="com.ryan.springbootvue.mapper.PublicMapper">
+    <select id="getPara" resultType="com.ryan.springbootvue.entity.Parameter">
+        select * from parameter
+    </select>
+    <select id="getParaById" resultType="com.ryan.springbootvue.entity.Parameter">
+        select * from parameter where id=#{id}
+    </select>
+</mapper>

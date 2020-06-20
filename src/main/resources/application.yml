@@ -1,8 +1,8 @@
 spring:
   datasource:
     username: root
-    password: 123456
-    url: jdbc:mysql://192.168.1.104:3306/library
+    password: Ryanmoon@pass
+    url: jdbc:mysql://119.23.231.187:3306/library
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     initialization-mode: always
@@ -23,6 +23,8 @@ spring:
     maxPoolPreparedStatementPerConnectionSize: 20
     useGlobalDataSourceStat: true
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+#  redis:
+#    host: 192.168.1.104
 
 
 
@@ -44,3 +46,4 @@ logging:
         gc:
           mw:
             mapper: debug
+

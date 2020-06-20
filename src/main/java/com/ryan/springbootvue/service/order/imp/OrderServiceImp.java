@@ -5,6 +5,8 @@ import com.ryan.springbootvue.entity.T_order;
 import com.ryan.springbootvue.mapper.OrderMapper;
 import com.ryan.springbootvue.service.order.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,14 +17,17 @@ import java.util.List;
  * version 1.0
  */
 @Service
+//@CacheConfig(cacheNames = "order")
 public class OrderServiceImp implements OrderService {
     @Autowired
     private OrderMapper orderMapper;
 
     @Override
+//    @Cacheable(unless = "#result==null")
     public ResponseDto findOrderList(int from,int to) {
         List<T_order> list=orderMapper.findList(from,to);
         Integer num=orderMapper.findAllList();
+        System.out.println("调用数据库！");
         return ResponseDto.instance().ok(list,num);
     }
 

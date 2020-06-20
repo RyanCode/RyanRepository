@@ -2,13 +2,15 @@ package com.ryan.springbootvue.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import java.io.Serializable;
+
 /**
  * @Author Ryan
  * @Date 2020/2/21 20:43
  * version 1.0
  */
 @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-public class ResponseDto {
+public class ResponseDto implements Serializable {
     private static ResponseDto responseDto;
 
     private Integer code;
@@ -81,6 +83,12 @@ public class ResponseDto {
      */
     public ResponseDto ok(Object data,Integer num){
         responseDto.setAll(num);
+        responseDto.setCode(200);
+        responseDto.setMsg("请求成功");
+        responseDto.setData(data);
+        return responseDto;
+    }
+    public ResponseDto ok(Object data){
         responseDto.setCode(200);
         responseDto.setMsg("请求成功");
         responseDto.setData(data);

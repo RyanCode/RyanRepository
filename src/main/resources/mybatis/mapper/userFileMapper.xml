@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ryan.springbootvue.mapper.FileMapper">
+    <insert id="save">
+        insert into userfile values (
+        #{id},#{oldFileName},#{newFileName},#{path},#{size},#{downCounts},#{uploadTime},#{userId})
+    </insert>
+        <!-- List<UserFile> getFile();-->
+    <select id="getFile" resultType="com.ryan.springbootvue.entity.UserFile">
+        select * from userfile order by uploadTime desc
+    </select>
+</mapper>

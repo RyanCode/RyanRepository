@@ -1,6 +1,8 @@
 package com.ryan.springbootvue.service.user;
 
+import com.ryan.springbootvue.dto.ParameterDto;
 import com.ryan.springbootvue.dto.ResponseDto;
+import com.ryan.springbootvue.entity.Journals;
 import com.ryan.springbootvue.entity.User;
 
 /**
@@ -12,8 +14,14 @@ public interface UserService {
 
     User findUserById(String name,String password);
 
-    ResponseDto addUserListData(User user);
-
     boolean isAdmin(String username);
+
+    int insertJournal(Journals journals);
+
+    ParameterDto findAllJournal();
+
+    ResponseDto findUser();
+
+    int deleteUser(String name);
 
 }

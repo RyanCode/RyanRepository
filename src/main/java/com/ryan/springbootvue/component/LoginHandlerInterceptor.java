@@ -23,10 +23,13 @@ public class LoginHandlerInterceptor implements HandlerInterceptor{
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         //get token from request
         String token=request.getHeader(HttpHeaders.AUTHORIZATION);
+//        System.out.println(request.getMethod());
+//        System.out.println(token);
         /**
          * 简单判断铭文是否解析正常
          */
-        return request.getRequestURI().equals("/Ryan/druid")||request.getMethod().equals("OPTIONS")||RSA.decrypt(token, genAndVerTokenService.PRIVATE_KEY).length() > 0;
+        return true;
+//        return request.getRequestURI().equals("/Ryan/druid")||request.getMethod().equals("OPTIONS")||RSA.decrypt(token, genAndVerTokenService.PRIVATE_KEY).length() > 0;
     }
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable ModelAndView modelAndView) throws Exception {

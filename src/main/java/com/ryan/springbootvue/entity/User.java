@@ -2,8 +2,11 @@ package com.ryan.springbootvue.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import lombok.experimental.Accessors;
 
-import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 
 /**
  * @Author Ryan
@@ -12,11 +15,13 @@ import javax.validation.constraints.NotBlank;
  */
 @Data
 @AllArgsConstructor
-public class User {
-    @NotBlank
+@NoArgsConstructor
+@ToString
+@Accessors(chain = true)
+public class User implements Serializable{
     private String name;
-    @NotBlank
     private String password;
-    @NotBlank
     private Boolean isAdmin;
+    private String createtime;
+    private Boolean status;
 }

@@ -36,7 +36,6 @@ public class DataController {
         int to=pageSize;
         return query.equals("") ? orderService.findOrderList(from,to):orderService.findOrderListStr(query,from,to);
     }
-
     @PostMapping(value = "/addOrder")
     @ResponseBody
     @CrossOrigin
@@ -53,4 +52,9 @@ public class DataController {
         String account = RSA.decrypt(token, genAndVerTokenService.PRIVATE_KEY).split(" ")[0];
         return userService.isAdmin(account);
     }
+
+//    @RequestMapping(method = RequestMethod.GET,value = "/userInfo")
+//    public ResponseDto getUser(){
+//
+//    }
 }
