@@ -5,6 +5,7 @@ import com.ryan.springbootvue.entity.UserFile;
 import com.ryan.springbootvue.mapper.FileMapper;
 import com.ryan.springbootvue.service.user.UserFileService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -35,7 +36,7 @@ public class UserFileServiceImpl implements UserFileService {
         if (!mfile.isEmpty()){
             String oldFileName=mfile.getOriginalFilename();
             String newFileName=System.currentTimeMillis()+ "." +oldFileName.substring(oldFileName.lastIndexOf(".")+1);
-            String filePath="E:\\upload\\";
+            String filePath="~/jars/upload";
             File dest=new File(filePath+newFileName);
             if (!dest.getParentFile().exists()){
                 dest.getParentFile().mkdirs();

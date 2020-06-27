@@ -14,7 +14,7 @@
         insert into loginjournals values (#{id},#{acc},#{date},#{status},#{ip})
     </insert>
     <select id="findAllJournal" resultType="com.ryan.springbootvue.entity.Journals">
-        select * from loginjournals;
+        select * from loginjournals order by id desc limit 10;
     </select>
     <select id="findAllUser" resultType="com.ryan.springbootvue.entity.User">
         select * from user where isadmin=0

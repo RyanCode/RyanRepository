@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @EnableCaching
 @MapperScan(value = "com.ryan.springbootvue.mapper")
 public class SpringbootVueApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(SpringbootVueApplication.class, args);
     }
